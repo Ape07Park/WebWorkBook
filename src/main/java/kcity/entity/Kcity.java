@@ -17,6 +17,16 @@ public class Kcity {
 		this.district = district;
 		this.population = population;
 	}
+	
+
+	public Kcity(String name, String countryCode, String district, int population) {
+		super();
+		this.name = name;
+		this.countryCode = countryCode;
+		this.district = district;
+		this.population = population;
+	}
+
 	public int getId() {
 		return id;
 	}
