@@ -120,8 +120,27 @@ public class KcityDao {
 	}
 	
 	// 더 살펴보기
-	public void updateKcity(int id) {
+	public void updateKcity(Kcity kcity) {
 		Connection conn = getConnection();
+		String sql = "update kcity set name=?, countryCode=?, district=?, population=? where id=?";
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, kcity.getName());
+			pstmt.setString(2, kcity.getCountryCode());
+			pstmt.setString(3, kcity.getDistrict());
+			pstmt.setInt(4, kcity.getPopulation());
+			pstmt.setInt(5, kcity.getId());
+			
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void deleteKcity(int id) {

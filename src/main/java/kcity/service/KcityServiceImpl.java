@@ -26,14 +26,12 @@ public class KcityServiceImpl implements KcityService {
 
 	@Override
 	public void updateKcity(Kcity kcity) {
-		kDao.updateKcity();
-		
-		
+		kDao.updateKcity(kcity);
 	}
 
 	@Override
 	public void deleteKcity(int id) {
-		// TODO Auto-generated method stub
+		kDao.deleteKcity(id);
 		
 	}
 	
