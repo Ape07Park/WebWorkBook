@@ -69,24 +69,16 @@ public class KcityController extends HttpServlet {
 			// id로 값 불러오기 - kcity 생성 및 jsp로 보낼 수 있게 준비- jsp로 이동- 수정할 값 입력 -controller로 돌아오기- jsp에서 사용자가 작성한 값 이용해 kcity update - dao의 기능이 있는
 			// serviceImpl을 통해 update 받아오기 및 update - list 화면으로 이동
 			if (method.equals("GET")) {
-				
-				// getParameter 함수가 원하는 걸 불러오지 못함 즉 null값을 받아옴
-				String name = request.getParameter("name");
-				System.out.println(name);
-				
-				// 키인 "id"로 id의 value 불러오기, * 이거 자주 틀림 
-				String id_ =  (request.getParameter("id") != null) ? "" : request.getParameter("id");
-				System.out.println(id_);
-				id = Integer.parseInt(id_);
-				
-				// id로 kcity 불러오기 및 kcity에 저장
-				Kcity kcity = kSvc.getById(id);
-				request.setAttribute("kcity", kcity);
-				
-				// update.jsp와 연결 및 데이터 보내기
-				rd = request.getRequestDispatcher("/WEB-INF/kcity/update.jsp");
-				// jsp 창 띄우기
-				rd.forward(request, response);
+								
+				 // id로 값 불러오기
+		        id = Integer.parseInt(request.getParameter("id"));
+		        // id로 kcity 불러오기 및 kcity에 저장
+		        Kcity kcity = kSvc.getById(id);
+		        request.setAttribute("kcity", kcity);
+		        // update.jsp와 연결 및 데이터 보내기
+		        rd = request.getRequestDispatcher("/WEB-INF/kcity/update.jsp");
+		        // jsp 창 띄우기
+		        rd.forward(request, response);
 				
 			} else {
 				// insert.jsp에서 작성한 값들 불러오기

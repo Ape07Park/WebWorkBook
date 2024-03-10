@@ -20,9 +20,6 @@
 	<input type="text" name="district" value="${kcity.district}" placeholder="지역 입력"><br>
 	<input type="text" name="population" value="${kcity.population}" placeholder="인구수 입력"><br>
 	<button type="submit">수정</button>
-	<button type="reset">취소</button>
 	
-	<%-- 제거 버튼에 제거 uri와 연결시켜 제거 기능이 작동하도록 함 --%>
-	<button type="submit"><a href="/wb/world/kcity/delete?id=${kcity.id}">제거</button>
 </body>
 </html>
